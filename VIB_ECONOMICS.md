@@ -27,7 +27,7 @@ TOTAL_SUPPLY = 1_000_000_000 VIB
 | 类别 | 数量 | 占总量 | 说明 |
 |---|---:|---:|---|
 | 绑定曲线释放 | 50,000,000 VIB | 5% | 通过启动绑定曲线释放，用于价格发现 |
-| 测试网奖励池 | 30,000,000 VIB | 3% | 用于质押、提名、观察、评审、任务市场奖励 |
+| 测试网奖励池 | 30,000,000 VIB | 3% | 用于自质押、观察、评审、任务协议奖励；V1 暂不启用提名 |
 | 初始流动性储备 | 20,000,000 VIB | 2% | 用于后续流动性、做市或协议储备 |
 | 其他锁定部分 | 900,000,000 VIB | 90% | 团队、生态、treasury、长期释放等，测试网阶段不进入流通 |
 
@@ -662,11 +662,11 @@ agentDailyTotalProtocolRewardCap = 3_000 VIB
 
 ### 13.3 任务市场匹配上限
 
-推荐：
+V1 生产测试网不启用 requester deposit / protocol matching。以下上限仅作为历史设计约束保留，当前实现采用 protocol-only capped reward：
 
 ```ts
 taskMaxSubsidy = 2_000 VIB
-protocolSubsidyMaxRatio = 100%
+protocolSubsidyMaxRatio = 0%
 ```
 
 即：
@@ -694,6 +694,8 @@ MVP 不需要一开始实现复杂经济模型，但需要保证：
 7. 所有金额使用整数最小单位；
 8. 不在链上使用浮点数。
 
+V1 生产测试网中，奖励结算 extrinsic 只能由 `RewardSettlementPublisher` 指定的专用热键提交。该热键只负责提交 base / observer / reviewer / task settlement，不代表用户领取奖励；用户 claim 仍由钱包直签，并转账到 identity owner account。
+
 ---
 
 ## 15. 链上状态建议
@@ -708,6 +710,8 @@ RewardConfig {
     task_market_pool,
     reserve_pool,
 
+    // V1 Coordinator 传入的是从 emission_start 起算的连续 day offset。
+    // 例如 emission_start 当天为 day_index = 0，不传 Unix day。
     emission_start,
     planned_emission_days,
 
@@ -777,12 +781,10 @@ RoundState {
 ```rust
 TaskState {
     task_id,
-    requester,
     executor,
 
-    requester_deposit,
     difficulty,
-    protocol_matching_reward,
+    protocol_reward,
 
     status,
     created_at,
@@ -849,12 +851,13 @@ reviewer_reward_i =
 ### 16.4 任务市场奖励
 
 ```rust
-protocol_matching_reward =
+task_protocol_reward =
     min(
-        requester_deposit * matching_ratio * difficulty_multiplier,
+        difficulty_reward,
         task_max_subsidy,
         remaining_daily_task_budget,
-        agent_daily_task_reward_remaining
+        agent_daily_task_reward_remaining,
+        agent_daily_total_protocol_reward_remaining
     )
 ```
 
@@ -862,9 +865,10 @@ protocol_matching_reward =
 
 ```rust
 task_final_reward =
-    requester_deposit
-    + protocol_matching_reward
+    task_protocol_reward
 ```
+
+V1 不结算 requester deposit，也不做 protocol matching；旧 matching flow 不属于生产测试网路径。
 
 ---
 
