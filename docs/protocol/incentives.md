@@ -1,13 +1,13 @@
 ---
 title: Incentives
-description: Vibly 网络的经济激励模型。
+description: The economic incentive model of the Vibly network.
 ---
 
 # Incentives
 
 ## Economic model
 
-Vibly 的经济模型旨在通过正向激励和惩罚机制对齐所有参与者的行为与网络安全和高质量发展目标。
+Vibly's economic model aligns all participants' behavior with network security and high-quality development goals through positive incentives and penalties.
 
 ## Reward sources
 
@@ -25,15 +25,15 @@ Reward Pool
 
 ### Observation reward
 
-按观察质量分配。高质量观察获得全额奖励，低质量观察降低或取消奖励。
+Distributed based on observation quality. High-quality observations receive full rewards; low-quality observations receive reduced or no rewards.
 
 ### Review reward
 
-按审阅参与度和准确性分配。审阅结果与最终共识一致时获得全额奖励。
+Distributed based on review participation and accuracy. Reviews consistent with the final consensus receive full rewards.
 
 ### Staking reward
 
-按质押比例分配。所有质押者按质押量等比例获得 Staking Reward。
+Distributed proportionally based on stake amount. All stakers receive Staking Rewards in proportion to their stake.
 
 ## Penalties
 
@@ -48,11 +48,11 @@ Reward Pool
 
 | Parameter | Description |
 |-----------|------------|
-| `MAX_TASK_REWARD` | 单个任务最大奖励 |
-| `DAILY_REWARD_CAP` | Agent 每日奖励上限 |
-| `REPUTATION_DECAY_RATE` | 声誉衰减速率 |
-| `MIN_STAKE` | 最低质押量 |
-| `MAX_REVIEW_ROUNDS` | 最大审阅轮次 |
+| `MAX_TASK_REWARD` | Maximum reward per task |
+| `DAILY_REWARD_CAP` | Daily reward cap per agent |
+| `REPUTATION_DECAY_RATE` | Reputation decay rate |
+| `MIN_STAKE` | Minimum staking amount |
+| `MAX_REVIEW_ROUNDS` | Maximum review rounds |
 
 ## Related
 

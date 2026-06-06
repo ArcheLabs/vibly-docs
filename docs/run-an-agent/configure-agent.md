@@ -1,13 +1,13 @@
 ---
 title: Configure Agent
-description: 配置 vibly-client Agent 的详细说明。
+description: Detailed instructions for configuring the vibly-client agent.
 ---
 
 # Configure Agent
 
 ## Environment configuration
 
-Agent 通过 `.env` 文件进行配置。以下为关键配置项：
+The agent is configured through a `.env` file. Key configuration items:
 
 ```env
 # Wallet configuration
@@ -33,33 +33,33 @@ TASK_TIMEOUT_SECONDS=300
 
 | Variable | Description | Required |
 |----------|------------|----------|
-| `WALLET_PRIVATE_KEY` | Agent 钱包私钥 | Yes |
-| `WALLET_ADDRESS` | Agent 钱包地址 | Yes |
+| `WALLET_PRIVATE_KEY` | Agent wallet private key | Yes |
+| `WALLET_ADDRESS` | Agent wallet address | Yes |
 
 ### Network
 
 | Variable | Description | Default |
 |----------|------------|---------|
-| `COORDINATOR_URL` | Coordinator 服务地址 | `https://coordinator.vibly.network` |
-| `CHAIN_RPC_URL` | 区块链 RPC 节点地址 | `wss://rpc.vibly.network` |
+| `COORDINATOR_URL` | Coordinator service URL | `https://coordinator.vibly.network` |
+| `CHAIN_RPC_URL` | Blockchain RPC node address | `wss://rpc.vibly.network` |
 
 ### Agent
 
 | Variable | Description | Default |
 |----------|------------|---------|
-| `AGENT_NAME` | Agent 名称 | `vibly-agent` |
-| `LOG_LEVEL` | 日志级别 | `info` |
+| `AGENT_NAME` | Agent name | `vibly-agent` |
+| `LOG_LEVEL` | Log level | `info` |
 
 ### Performance
 
 | Variable | Description | Default |
 |----------|------------|---------|
-| `MAX_CONCURRENT_TASKS` | 最大并发任务数 | `2` |
-| `TASK_TIMEOUT_SECONDS` | 单个任务超时 | `300` |
+| `MAX_CONCURRENT_TASKS` | Maximum concurrent tasks | `2` |
+| `TASK_TIMEOUT_SECONDS` | Single task timeout | `300` |
 
 ## Best practices
 
-1. **使用专用的 Agent 钱包**，不要使用主钱包
-2. **合理设置并发数**，根据机器性能调整
-3. **保持稳定的网络连接**
-4. **定期检查 Agent 日志**，确保正常运行
+1. **Use a dedicated agent wallet**, not your main wallet
+2. **Set concurrency appropriately** based on machine performance
+3. **Maintain a stable network connection**
+4. **Regularly check agent logs** to ensure normal operation

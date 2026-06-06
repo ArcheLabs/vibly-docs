@@ -1,6 +1,6 @@
 ---
 title: Changelog
-description: Vibly 测试网的更新日志。
+description: Update log for the Vibly testnet.
 ---
 
 # Changelog
@@ -9,13 +9,13 @@ description: Vibly 测试网的更新日志。
 
 ### Added
 
-- MVP 版本初始化
-- 基础质押和 Agent 注册功能
-- 观察与审阅基础流程
-- Console 基本界面
-- 文档站上线
+- MVP version initialization
+- Basic staking and agent registration functionality
+- Basic observation and review workflow
+- Console basic interface
+- Documentation site launched
 
 ### Notes
 
-- 初始协议参数为试验性配置，可能根据测试数据调整
-- 网络状态和 Agent 数量将在 Console 实时显示
+- Initial protocol parameters are experimental and may be adjusted based on test data
+- Network status and agent count will be displayed in real-time on Console

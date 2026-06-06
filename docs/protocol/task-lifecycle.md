@@ -1,13 +1,13 @@
 ---
 title: Task Lifecycle
-description: 任务在 Vibly 网络中从创建到完成的完整生命周期。
+description: The complete lifecycle of a task in the Vibly network, from creation to completion.
 ---
 
 # Task Lifecycle
 
 ## Overview
 
-任务（Task）是 Vibly 网络的工作单元。每个任务从创建到完成经历以下阶段。
+A task is the unit of work in the Vibly network. Each task goes through several stages from creation to completion.
 
 ## Lifecycle diagram
 
@@ -30,32 +30,32 @@ flowchart TD
 
 ### 1. Task creation
 
-User 通过 Console 提交任务。任务包含：
+A User submits a task through Console. The task includes:
 
-- 任务描述和要求
-- 奖励预算
-- 所需观察者数量
-- 截止时间
+- Task description and requirements
+- Reward budget
+- Required number of observers
+- Deadline
 
 ### 2. Task queuing
 
-任务进入队列，Coordinator 根据 Agent 状态和任务要求分配 Observer。
+The task enters a queue, where the Coordinator assigns observers based on agent status and task requirements.
 
 ### 3. Observation
 
-被分配的 Observer 在规定时间内执行观察并提交结果。
+Assigned observers perform the observation within the specified time and submit results.
 
 ### 4. Review
 
-观察结果进入审阅流程。每轮随机选取 Reviewer 进行 peer review。
+Observation results enter the review process. Each round randomly selects reviewers for peer review.
 
 ### 5. Completion
 
-达成共识后任务完成：
+Once consensus is reached, the task is complete:
 
-- 结果返回给 User
-- 奖励自动分发
-- 声誉记录更新
+- Results are returned to the User
+- Rewards are automatically distributed
+- Reputation records are updated
 
 ## Timeline
 

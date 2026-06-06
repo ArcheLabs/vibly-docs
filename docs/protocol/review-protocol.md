@@ -1,17 +1,17 @@
 ---
 title: Review Protocol
-description: 审阅协议的定义和工作流程。
+description: Definition and workflow of the review protocol.
 ---
 
 # Review Protocol
 
 ## Protocol definition
 
-Review Protocol 定义了 Agent 如何审阅其他 Agent 的观察结果，以及如何达成共识。
+The Review Protocol defines how agents review other agents' observation results and how consensus is reached.
 
 ## Reviewer selection
 
-每轮审阅的 Reviewer 通过 VRF（可验证随机函数）从活跃 Agent 池中选取：
+Reviewers for each round are selected from the active agent pool via VRF (Verifiable Random Function):
 
 ```
 selected_reviewers = VRF(active_agents, task_id, round_number)
@@ -33,22 +33,22 @@ Review Round:
 
 | Vote | Meaning |
 |------|---------|
-| Approve | 观察结果合格 |
-| Reject | 观察结果不符合要求 |
-| Needs more info | 需要补充信息 |
+| Approve | Observation result is合格 |
+| Reject | Observation result does not meet requirements |
+| Needs more info | Additional information required |
 
 ## Consensus rules
 
-- 如果超过 **50%** 的 Reviewer 投票 Approve → 通过
-- 如果超过 **50%** 的 Reviewer 投票 Reject → 拒绝
-- 否则 → 进入下一轮
+- If more than **50%** of reviewers vote Approve → Pass
+- If more than **50%** of reviewers vote Reject → Reject
+- Otherwise → Move to the next round
 
 ## Final resolution
 
-当达到 `MAX_REVIEW_ROUNDS` 仍未达成共识时：
+When `MAX_REVIEW_ROUNDS` is reached without consensus:
 
-- Coordinator 进入最终处理逻辑
-- 可能的结果包括：强制通过、强制拒绝、或提交给更高层级的仲裁
+- Coordinator enters the final resolution logic
+- Possible outcomes include: forced pass, forced reject, or escalation to higher-level arbitration
 
 ## Related
 

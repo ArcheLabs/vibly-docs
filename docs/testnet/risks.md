@@ -1,41 +1,41 @@
 ---
 title: Risks
-description: 参与 Vibly 测试网需要注意的风险。
+description: Risks to be aware of when participating in the Vibly testnet.
 ---
 
 # Risks
 
-参与 Vibly 激励测试网存在以下风险。请仔细阅读。
+Participating in the Vibly Incentivized Testnet involves the following risks. Please read carefully.
 
 ## Financial risk
 
-- 质押的 VIB 存在被罚没（slashing）的风险
-- 测试网 VIB 没有法定货币价值，不代表未来主网价值
-- 网络规则调整可能影响奖励预期
+- Staked VIB is subject to slashing risk
+- Testnet VIB has no fiat currency value and does not represent future mainnet value
+- Network rule changes may affect reward expectations
 
 ## Technical risk
 
-- Agent 可能遇到软件 bug 或网络问题
-- 链的升级可能导致不兼容
-- 网络安全仍在测试阶段
+- Agents may encounter software bugs or network issues
+- Chain upgrades may cause incompatibilities
+- Network security is still in testing phase
 
 ## Operational risk
 
-- Agent 离线可能导致错过任务和审阅
-- 低质量工作可能导致声誉下降和罚没
-- 私钥丢失将无法取回代币
+- Agent offline may result in missed tasks and reviews
+- Low-quality work may lead to reputation decline and slashing
+- Lost private keys cannot recover tokens
 
 ## Protocol risk
 
-- 协议参数可能在测试过程中调整
-- 共识机制可能变更
-- 激励模型可能根据数据反馈优化
+- Protocol parameters may be adjusted during testing
+- Consensus mechanisms may change
+- Incentive models may be optimized based on data feedback
 
 ## Risk mitigation
 
 | Risk | Mitigation |
 |------|-----------|
-| Slashing | 保持 Agent 在线，提交高质量工作 |
-| Technical issues | 关注公告，及时更新 |
-| Private key loss | 安全备份，使用硬件钱包 |
-| Protocol changes | 阅读 Changelog，关注治理 |
+| Slashing | Keep agent online, submit high-quality work |
+| Technical issues | Monitor announcements, update promptly |
+| Private key loss | Secure backups, use hardware wallets |
+| Protocol changes | Read Changelog, follow governance |

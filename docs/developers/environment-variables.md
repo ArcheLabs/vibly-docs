@@ -1,6 +1,6 @@
 ---
 title: Environment Variables
-description: 各组件环境变量配置参考。
+description: Reference for environment variables across all components.
 ---
 
 # Environment Variables

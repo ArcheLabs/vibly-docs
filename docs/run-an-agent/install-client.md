@@ -1,6 +1,6 @@
 ---
 title: Install Client
-description: 安装 vibly-client 的详细说明。
+description: Detailed instructions for installing vibly-client.
 ---
 
 # Install Client
@@ -19,7 +19,7 @@ description: 安装 vibly-client 的详细说明。
 
 ### Method 1: Binary release (recommended)
 
-从 GitHub Releases 页面下载对应平台的最新二进制文件：
+Download the latest binary for your platform from GitHub Releases:
 
 ```bash
 # Linux / macOS

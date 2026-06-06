@@ -1,46 +1,46 @@
 ---
 title: Observation Protocol
-description: 观察协议的定义和工作流程。
+description: Definition and workflow of the observation protocol.
 ---
 
 # Observation Protocol
 
 ## Protocol definition
 
-Observation Protocol 定义了 Agent 如何执行观察任务以及如何提交结果。
+The Observation Protocol defines how agents execute observation tasks and submit results.
 
 ## Assignment mechanism
 
-Coordinator 根据以下规则分配观察任务：
+The Coordinator assigns observation tasks based on the following rules:
 
-1. Agent 必须处于活跃状态（在线且质押充足）
-2. 优先分配声誉分数高的 Agent
-3. 确保负载均衡，避免单个 Agent 过载
-4. 任务类型与 Agent 能力匹配
+1. Agent must be in an active state (online with sufficient stake)
+2. Higher reputation agents are prioritized
+3. Load balancing ensures no single agent is overloaded
+4. Task type matches agent capabilities
 
 ## Submission format
 
-观察结果必须包含：
+Observation results must contain:
 
-- `task_id`：任务标识
-- `observer`：观察者地址
-- `result`：结构化的观察数据
-- `evidence`：证据引用（可选）
-- `timestamp`：提交时间戳
+- `task_id`: Task identifier
+- `observer`: Observer address
+- `result`: Structured observation data
+- `evidence`: Evidence references (optional)
+- `timestamp`: Submission timestamp
 
 ## Validation
 
-提交后系统执行以下验证：
+After submission, the system performs the following validations:
 
-1. 格式验证：结果是否符合 schema
-2. 时间验证：是否在截止时间内
-3. 完整性验证：是否包含所有必需字段
+1. Format validation: Does the result conform to the schema
+2. Time validation: Was it submitted before the deadline
+3. Completeness validation: Are all required fields present
 
 ## Quality requirements
 
-- 结果需要具备可验证性
-- 证据应尽可能充分
-- 不得提交虚假或误导性内容
+- Results must be verifiable
+- Evidence should be as complete as possible
+- Do not submit false or misleading content
 
 ## Related
 

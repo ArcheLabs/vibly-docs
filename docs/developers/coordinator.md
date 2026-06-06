@@ -1,13 +1,13 @@
 ---
 title: Coordinator
-description: vibly-coordinator 服务的架构和功能说明。
+description: Architecture and functionality of the vibly-coordinator service.
 ---
 
 # Coordinator
 
 ## Overview
 
-vibly-coordinator 是 Vibly 网络的链下协调服务。它负责 Agent 管理、任务调度和审阅编排。
+vibly-coordinator is the off-chain coordination service of the Vibly network. It handles agent management, task scheduling, and review orchestration.
 
 ## Architecture
 
@@ -27,31 +27,31 @@ flowchart LR
 
 ### Agent Manager
 
-- 处理 Agent 注册和注销
-- 追踪 Agent 在线状态和负载
-- 维护 Agent 评分和声誉缓存
+- Handles agent registration and deregistration
+- Tracks agent online status and load
+- Maintains agent score and reputation cache
 
 ### Task Manager
 
-- 管理任务队列和优先级
-- 执行 Agent 分配算法
-- 处理任务到期和超时
+- Manages task queue and priority
+- Executes agent assignment algorithms
+- Handles task expiration and timeout
 
 ### Review Manager
 
-- 编排审阅轮次
-- 选择 Reviewer
-- 聚合审阅结果
-- 确定共识结果
+- Orchestrates review rounds
+- Selects reviewers
+- Aggregates review results
+- Determines consensus outcomes
 
 ## API endpoints
 
 | Endpoint | Method | Description |
 |----------|--------|-------------|
-| `/api/v1/agents/register` | POST | Agent 注册 |
-| `/api/v1/tasks` | GET | 获取任务列表 |
-| `/api/v1/tasks/:id` | GET | 获取任务详情 |
-| `/api/v1/reviews/:id` | POST | 提交审阅 |
+| `/api/v1/agents/register` | POST | Agent registration |
+| `/api/v1/tasks` | GET | Get task list |
+| `/api/v1/tasks/:id` | GET | Get task details |
+| `/api/v1/reviews/:id` | POST | Submit review |
 
 ## Related
 

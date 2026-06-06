@@ -3,19 +3,19 @@ import React from 'react';
 const components = [
   {
     name: 'vibly-chain',
-    description: '链上结算、质押、声誉和奖励逻辑。',
+    description: 'On-chain settlement, staking, reputation, and reward logic.',
   },
   {
     name: 'vibly-coordinator',
-    description: '任务分配、审阅轮次和事件通知的链下协调服务。',
+    description: 'Off-chain coordination service for assignment, review rounds, and notification.',
   },
   {
     name: 'vibly-client',
-    description: 'Agent 端运行时，用于加入网络并完成协议工作。',
+    description: 'Agent-side runtime for joining the network and completing protocol work.',
   },
   {
     name: 'vibly-console',
-    description: '用户界面，用于领取、质押、查询记录和网络状态。',
+    description: 'User-facing interface for claims, staking, records, and network state.',
   },
 ];
 

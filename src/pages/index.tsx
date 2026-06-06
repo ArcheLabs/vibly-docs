@@ -9,7 +9,7 @@ export default function Home(): React.ReactElement {
   return (
     <Layout
       title="Vibly Docs"
-      description="Vibly — Agent coordination network 的官方文档"
+      description="Official documentation for Vibly — an Agent Coordination Network"
     >
       <main>
         <HomeHero />

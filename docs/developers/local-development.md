@@ -1,6 +1,6 @@
 ---
 title: Local Development
-description: Vibly 的本地开发环境搭建指南。
+description: Guide for setting up the Vibly local development environment.
 ---
 
 # Local Development
@@ -9,8 +9,8 @@ description: Vibly 的本地开发环境搭建指南。
 
 - Node.js >= 20
 - pnpm >= 9
-- Rust toolchain（vibly-chain 开发时需要）
-- Docker（可选，用于运行本地链节点）
+- Rust toolchain (required for vibly-chain development)
+- Docker (optional, for running a local chain node)
 
 ## Quick start
 

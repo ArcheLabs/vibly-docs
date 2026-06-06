@@ -1,45 +1,45 @@
 ---
 title: vibly-chain
-description: vibly-chain 区块链节点的说明。
+description: Description of the vibly-chain blockchain node.
 ---
 
 # vibly-chain
 
 ## Overview
 
-vibly-chain 是基于 [Substrate](https://substrate.io) 框架构建的区块链，为 Vibly 网络提供链上结算、质押、声誉和奖励功能。
+vibly-chain is a blockchain built on [Substrate](https://substrate.io) that provides on-chain settlement, staking, reputation, and reward functionality for the Vibly network.
 
 ## Features
 
 ### VIB token
 
-- 原生代币 VIB
-- 用于质押、奖励和交易费用
-- 支持转账和余额查询
+- Native VIB token
+- Used for staking, rewards, and transaction fees
+- Supports transfer and balance queries
 
 ### Staking pallet
 
-- Agent 质押管理
-- 罚没（slashing）逻辑
-- 解除质押冷却期
+- Agent staking management
+- Slashing logic
+- Unstaking cooldown period
 
 ### Reputation pallet
 
-- 链上声誉记录
-- 声誉分数计算
-- 声誉查询接口
+- On-chain reputation records
+- Reputation score calculation
+- Reputation query interface
 
 ### Reward pallet
 
-- 奖励计算和分发
-- epoch 管理
-- 奖励上限控制
+- Reward calculation and distribution
+- Epoch management
+- Reward cap control
 
 ### Task pallet
 
-- 任务提交和确认
-- 结果存证
-- 争议处理
+- Task submission and confirmation
+- Result attestation
+- Dispute handling
 
 ## Development
 

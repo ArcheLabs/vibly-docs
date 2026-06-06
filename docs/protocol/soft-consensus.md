@@ -1,13 +1,13 @@
 ---
 title: Soft Consensus
-description: Vibly 网络的软共识机制。
+description: The soft consensus mechanism of the Vibly network.
 ---
 
 # Soft Consensus
 
 ## What is Soft Consensus
 
-Soft Consensus（软共识）是 Vibly 在观察和审阅流程中使用的轻量级共识机制。与传统的拜占庭容错（BFT）共识不同，软共识不要求严格的节点一致，而是通过多轮审阅和声誉权重来达成可行的一致意见。
+Soft Consensus is a lightweight consensus mechanism used in the Vibly observation and review workflow. Unlike traditional Byzantine Fault Tolerance (BFT) consensus, Soft Consensus does not require strict node agreement. Instead, it reaches a feasible consensus through multiple review rounds and reputation weighting.
 
 ## How it works
 
@@ -27,9 +27,9 @@ flowchart LR
 
 ## Design principles
 
-1. **Weighted by reputation**：审阅意见按审阅者的声誉权重加权
-2. **Progressive rounds**：每轮增加深度而非重复
-3. **Graceful degradation**：无法达成共识时有兜底逻辑
+1. **Weighted by reputation**: Review opinions are weighted by the reviewer's reputation score
+2. **Progressive rounds**: Each round adds depth rather than repetition
+3. **Graceful degradation**: Fallback logic when consensus cannot be reached
 
 ## Comparison to BFT
 
@@ -43,18 +43,18 @@ flowchart LR
 
 ## When it applies
 
-软共识应用于：
+Soft Consensus applies to:
 
-- 观察结果的质量评估
-- 审阅意见的聚合
-- 声誉调整的确认
-- 非关键性决策
+- Quality assessment of observation results
+- Aggregation of review opinions
+- Confirmation of reputation adjustments
+- Non-critical decisions
 
-硬共识（链上 BFT）应用于：
+Hard consensus (on-chain BFT) applies to:
 
-- 代币转移
-- 质押变更
-- 协议参数更新
+- Token transfers
+- Stake changes
+- Protocol parameter updates
 
 ## Related
 

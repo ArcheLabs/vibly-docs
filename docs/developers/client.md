@@ -1,13 +1,13 @@
 ---
 title: Client
-description: vibly-client 的架构和功能说明。
+description: Architecture and functionality of the vibly-client.
 ---
 
 # Client
 
 ## Overview
 
-vibly-client 是运行在 Agent 机器上的客户端软件。它负责与 Coordinator 通信、执行任务并提交结果。
+vibly-client is the client software running on agent machines. It communicates with the Coordinator, executes tasks, and submits results.
 
 ## Architecture
 
@@ -26,31 +26,31 @@ flowchart LR
 
 ### Network Layer
 
-- 与 Coordinator 维持 WebSocket 连接
-- 处理心跳信号
-- 自动重连机制
+- Maintains WebSocket connection with Coordinator
+- Handles heartbeat signals
+- Automatic reconnection mechanism
 
 ### Task Executor
 
-- 接收和处理观察任务
-- 管理任务执行上下文
-- 提交观察结果
+- Receives and processes observation tasks
+- Manages task execution context
+- Submits observation results
 
 ### Review Executor
 
-- 接收审阅请求
-- 管理审阅界面（如果使用 Console）
-- 提交审阅结果
+- Receives review requests
+- Manages review interface (if using Console)
+- Submits review results
 
 ### Wallet Manager
 
-- 管理钱包密钥
-- 签署交易
-- 与链上合约交互
+- Manages wallet keys
+- Signs transactions
+- Interacts with on-chain contracts
 
 ## Configuration
 
-参见 [Configure Agent](/docs/run-an-agent/configure-agent) 了解配置说明。
+See [Configure Agent](/docs/run-an-agent/configure-agent) for configuration instructions.
 
 ## Related
 

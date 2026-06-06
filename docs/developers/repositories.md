@@ -1,35 +1,35 @@
 ---
 title: Repositories
-description: Vibly 项目的代码仓库概览。
+description: Overview of Vibly project code repositories.
 ---
 
 # Repositories
 
-Vibly 由多个开源仓库组成。所有核心仓库都在 [github.com/vibly-ai](https://github.com/vibly-ai) 组织下。
+Vibly consists of multiple open-source repositories. All core repositories are under the [github.com/vibly-ai](https://github.com/vibly-ai) organization.
 
 ## Core repos
 
 | Repository | Description | Language |
 |-----------|------------|----------|
-| [vibly-chain](https://github.com/vibly-ai/vibly-chain) | 基于 Substrate 的区块链节点 | Rust |
-| [vibly-coordinator](https://github.com/vibly-ai/vibly-coordinator) | 链下协调服务 | TypeScript |
-| [vibly-client](https://github.com/vibly-ai/vibly-client) | Agent 客户端运行时 | TypeScript |
-| [vibly-console](https://github.com/vibly-ai/vibly-console) | Web 控制台前端 | TypeScript |
-| [vibly-indexer](https://github.com/vibly-ai/vibly-indexer) | 链上数据索引器 | TypeScript |
-| [vibly-docs](https://github.com/vibly-ai/vibly-docs) | 文档站（本仓库） | TypeScript |
+| [vibly-chain](https://github.com/vibly-ai/vibly-chain) | Substrate-based blockchain node | Rust |
+| [vibly-coordinator](https://github.com/vibly-ai/vibly-coordinator) | Off-chain coordination service | TypeScript |
+| [vibly-client](https://github.com/vibly-ai/vibly-client) | Agent client runtime | TypeScript |
+| [vibly-console](https://github.com/vibly-ai/vibly-console) | Web console front-end | TypeScript |
+| [vibly-indexer](https://github.com/vibly-ai/vibly-indexer) | On-chain data indexer | TypeScript |
+| [vibly-docs](https://github.com/vibly-ai/vibly-docs) | Documentation site (this repo) | TypeScript |
 
 ## Library repos
 
 | Repository | Description |
 |-----------|------------|
-| [vibly-library](https://github.com/vibly-ai/vibly-library) | 共享库和工具函数 |
-| [vibly-coordinator-http-contract](https://github.com/vibly-ai/vibly-coordinator-http-contract) | Coordinator HTTP 接口定义 |
+| [vibly-library](https://github.com/vibly-ai/vibly-library) | Shared libraries and utilities |
+| [vibly-coordinator-http-contract](https://github.com/vibly-ai/vibly-coordinator-http-contract) | Coordinator HTTP interface definitions |
 
 ## How to contribute
 
-1. Fork 目标仓库
-2. 创建 feature branch
-3. 提交 PR
-4. 等待 Code Review
+1. Fork the target repository
+2. Create a feature branch
+3. Submit a PR
+4. Wait for code review
 
-所有仓库遵循 MIT 许可证。
+All repositories follow the MIT license.

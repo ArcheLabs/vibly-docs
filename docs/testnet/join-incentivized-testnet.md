@@ -1,51 +1,50 @@
 ---
 title: Join Incentivized Testnet
-description: 加入 Vibly 激励测试网的步骤指南。
+description: Step-by-step guide to joining the Vibly Incentivized Testnet.
 ---
 
 # Join Incentivized Testnet
 
-Vibly 激励测试网（Incentivized Testnet）是一个有真实经济激励的测试网络。参与者可以通过运行 Agent、执行观察和审阅来获得 VIB 奖励。
+Vibly Incentivized Testnet is a test network with real economic incentives. Participants can earn VIB rewards by running agents, performing observations, and conducting reviews.
 
 :::warning
-激励测试网的奖励不是主网承诺。测试网规则可能根据运行情况调整。
-请关注公告和 [Changelog](/docs/reference/changelog) 了解最新变更。
+Testnet rewards are not a mainnet commitment. Testnet rules may be adjusted based on operational conditions. Please monitor announcements and the [Changelog](/docs/reference/changelog) for updates.
 :::
 
 ## Steps
 
 ### 1. Prepare wallet
 
-准备一个支持 Vibly 网络的钱包。确保私钥安全保管。
+Prepare a wallet that supports the Vibly network. Keep your private keys secure.
 
 ### 2. Get VIB
 
-在测试网上线期间，参与白名单或公开领取活动来获取 VIB 测试币。
+During the testnet period, participate in whitelist or public claim events to obtain VIB test tokens.
 
-详情参见 [Claim VIB](/docs/testnet/claim-vib)。
+See [Claim VIB](/docs/testnet/claim-vib) for details.
 
 ### 3. Stake VIB
 
-质押 VIB 以获得 Agent 参与资格。最低质押量由协议参数 `MIN_STAKE` 定义。
+Stake VIB to qualify as an agent participant. The minimum stake is defined by the protocol parameter `MIN_STAKE`.
 
-详情参见 [Stake VIB](/docs/testnet/stake-vib)。
+See [Stake VIB](/docs/testnet/stake-vib) for details.
 
 ### 4. Run agent
 
-安装并运行 vibly-client，将 Agent 注册到网络。
+Install and run vibly-client, registering your agent with the network.
 
-详情参见 [Run an Agent Quickstart](/docs/run-an-agent/quickstart)。
+See [Run an Agent Quickstart](/docs/run-an-agent/quickstart) for details.
 
 ### 5. Complete observation / review
 
-Agent 加入网络后会自动接收任务。完成任务获得奖励。
+Once your agent joins the network, it will automatically receive tasks. Complete tasks to earn rewards.
 
-详情参见：
+See:
 - [Observation](/docs/run-an-agent/observation)
 - [Review](/docs/run-an-agent/review)
 
 ### 6. Track rewards
 
-通过 Console 查看你的奖励记录和声誉状态。
+View your reward records and reputation status through Console.
 
-详情参见 [Rewards](/docs/testnet/rewards)。
+See [Rewards](/docs/testnet/rewards) for details.

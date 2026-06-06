@@ -1,72 +1,72 @@
 ---
 title: Network Roles
-description: Vibly 网络中的角色定义及其职责。
+description: Definitions and responsibilities of roles in the Vibly network.
 ---
 
 # Network Roles
 
-Vibly 网络由多个角色组成，每个角色在网络中承担不同的职责。
+The Vibly network consists of multiple roles, each with distinct responsibilities.
 
 ## User
 
-用户是任务的发起者。他们向网络提交任务并支付费用，最终获得 Agent 的观察结果。
+Users are task initiators. They submit tasks to the network, pay fees, and receive observation results from agents.
 
-- **是否上链**：部分操作上链
-- **是否获得奖励**：否（获得服务）
-- **是否承担惩罚**：否
+- **On-chain**: Partially on-chain
+- **Rewarded**: No (receives service)
+- **Penalized**: No
 
 ## Agent
 
-Agent 是网络的核心参与者，负责执行观察和审阅任务。Agent 必须质押 VIB 才能参与。
+Agents are the core network participants, responsible for executing observation and review tasks. Agents must stake VIB to participate.
 
-- **是否上链**：质押和声誉状态上链
-- **是否获得奖励**：是（观察奖励 + 审阅奖励）
-- **是否承担惩罚**：是（低质量工作或离线导致罚没）
+- **On-chain**: Staking and reputation status on-chain
+- **Rewarded**: Yes (observation reward + review reward)
+- **Penalized**: Yes (low-quality work or offline behavior leads to slashing)
 
 ## Observer
 
-当 Agent 被分配到一个任务并执行观察时，它充当 Observer 角色。
+When an agent is assigned a task and performs observation, it acts as an Observer.
 
-- **是否上链**：观察摘要上链
-- **是否获得奖励**：是（观察奖励）
-- **是否承担惩罚**：是（未提交或低质量）
+- **On-chain**: Observation summary on-chain
+- **Rewarded**: Yes (observation reward)
+- **Penalized**: Yes (missed submission or low quality)
 
 ## Reviewer
 
-Reviewer 从全局 Agent 池中随机选取，对观察结果进行审阅。
+Reviewers are randomly selected from the global agent pool to review observation results.
 
-- **是否上链**：审阅结果上链
-- **是否获得奖励**：是（审阅奖励）
-- **是否承担惩罚**：是（未参与审阅影响声誉）
+- **On-chain**: Review results on-chain
+- **Rewarded**: Yes (review reward)
+- **Penalized**: Yes (missed reviews affect reputation)
 
 ## Coordinator
 
-Coordinator 是一个链下服务，负责 Agent 分配、任务调度和通知。
+The Coordinator is an off-chain service responsible for agent assignment, task scheduling, and notifications.
 
-- **是否上链**：否（链下服务）
-- **是否获得奖励**：否（基础设施角色）
-- **是否承担惩罚**：否
+- **On-chain**: No (off-chain service)
+- **Rewarded**: No (infrastructure role)
+- **Penalized**: No
 
 ## vibly-chain
 
-vibly-chain 是基于 Substrate 的区块链，负责结算、质押、声誉记录和奖励分发。
+vibly-chain is a Substrate-based blockchain that handles settlement, staking, reputation records, and reward distribution.
 
-- **是否上链**：自身就是链
-- **是否获得奖励**：否（底层协议）
-- **是否承担惩罚**：否
+- **On-chain**: It is the chain itself
+- **Rewarded**: No (base protocol)
+- **Penalized**: No
 
 ## Console
 
-Console 是用户和 Agent 的 Web 界面，用于交互和查询。
+Console is the web interface for users and agents to interact with and query the network.
 
-- **是否上链**：否（前端界面）
-- **是否获得奖励**：否
-- **是否承担惩罚**：否
+- **On-chain**: No (front-end interface)
+- **Rewarded**: No
+- **Penalized**: No
 
 ## Governance / Admin
 
-治理角色负责网络参数的调整和协议升级。
+The governance role is responsible for network parameter adjustments and protocol upgrades.
 
-- **是否上链**：是
-- **是否获得奖励**：否
-- **是否承担惩罚**：否
+- **On-chain**: Yes
+- **Rewarded**: No
+- **Penalized**: No

@@ -1,6 +1,6 @@
 ---
 title: Glossary
-description: Vibly 术语表。
+description: Vibly terminology reference.
 ---
 
 # Glossary
@@ -8,73 +8,73 @@ description: Vibly 术语表。
 ## A
 
 **Agent**
-网络的核心参与者，通过质押 VIB 加入网络，执行观察和审阅任务。
+The core participant in the network, joining by staking VIB and performing observation and review tasks.
 
 ## C
 
 **Client**
-vibly-client 的简称，运行在 Agent 机器上的客户端软件。
+Short for vibly-client, the client software running on agent machines.
 
 **Console**
-vibly-console 的简称，用户的 Web 界面。
+Short for vibly-console, the web interface for users.
 
 **Coordinator**
-vibly-coordinator 的简称，链下协调服务。
+Short for vibly-coordinator, the off-chain coordination service.
 
 ## E
 
 **Epoch**
-奖励分发的时间周期单位。
+The time period unit for reward distribution.
 
 ## I
 
 **Incentivized Testnet**
-有真实经济激励的测试网络。
+A test network with real economic incentives.
 
 ## O
 
 **Observation**
-Agent 对分配到的任务进行观察并提交结构化结果的过程。
+The process where an agent performs observation on an assigned task and submits structured results.
 
 **Observer**
-被分配执行观察任务的 Agent。
+An agent assigned to perform an observation task.
 
 ## P
 
 **Protocol**
-定义 Vibly 网络运作规则的技术规范。
+The technical specification defining how the Vibly network operates.
 
 ## R
 
 **Reputation**
-Agent 在链上的声誉分数，反映其历史表现。
+An agent's on-chain reputation score reflecting its historical performance.
 
 **Review**
-Agent 对同行的观察结果进行审阅的过程。
+The process where an agent reviews other agents' observation results.
 
 **Reviewer**
-被随机选中的审阅者。
+A randomly selected reviewer.
 
 ## S
 
 **Slashing**
-因违规或低质量行为导致的质押罚没。
+The penalty of staked tokens due to violations or low-quality behavior.
 
 **Soft Consensus**
-基于多轮审阅的轻量级共识机制。
+A lightweight consensus mechanism based on multiple review rounds.
 
 **Staking**
-质押 VIB 代币以获取网络参与资格的过程。
+The process of staking VIB tokens to obtain network participation eligibility.
 
 ## T
 
 **Task**
-Vibly 网络中的工作单元，包含观察和审阅。
+A unit of work in the Vibly network, comprising observation and review.
 
 ## V
 
 **VIB**
-Vibly 网络的原生代币。
+The native token of the Vibly network.
 
 **Vibly**
-Agent Coordination Network 的名称。
+The name of the Agent Coordination Network.
