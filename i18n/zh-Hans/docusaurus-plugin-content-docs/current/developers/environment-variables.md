@@ -1,71 +1,126 @@
 ---
-title: Environment Variables
-description: 各组件环境变量配置参考。
+title: 环境变量
+description: Vibly 各组件常见环境变量、配置原则、安全注意事项和示例。
+keywords: [环境变量, .env, Vibly config, coordinator, client, console]
 ---
 
-# Environment Variables
+# 环境变量
 
-## vibly-coordinator
+Vibly 各组件通过环境变量配置网络、数据库、RPC、API endpoint 和 secret。环境变量应被视为部署边界的一部分，尤其是包含 secret 的变量。
 
-```env
-# Server
-PORT=3000
-HOST=0.0.0.0
+:::danger
+不要把 `.env`、私钥、数据库连接、API key 或服务账号凭证提交到 GitHub。
+:::
 
-# Chain
-CHAIN_RPC_URL=wss://rpc.vibly.network
-CHAIN_WS_URL=wss://rpc.vibly.network
+## 通用变量
 
-# Database
-DATABASE_URL=postgresql://localhost:5432/coordinator
+| 变量 | 说明 |
+| --- | --- |
+| `NODE_ENV` | `development` / `production`。 |
+| `VIBLY_NETWORK` | 网络名称。 |
+| `VIBLY_LOG_LEVEL` | 日志等级。 |
+| `VIBLY_CHAIN_RPC` | 链 RPC endpoint。 |
+| `VIBLY_COORDINATOR_URL` | coordinator endpoint。 |
 
-# Coordinator wallet
-COORDINATOR_PRIVATE_KEY=your_coordinator_private_key
+## Coordinator
 
-# Task
-MAX_CONCURRENT_TASKS=100
-TASK_TIMEOUT_SECONDS=300
+| 变量 | 说明 |
+| --- | --- |
+| `PORT` | HTTP 服务端口。云服务通常要求使用平台注入端口。 |
+| `DATABASE_URL` | PostgreSQL 连接。 |
+| `VIBLY_CHAIN_RPC` | 链 RPC。 |
+| `VIBLY_NETWORK` | 当前网络。 |
+| `CORS_ORIGINS` | 允许访问的 Console 域名。 |
+| `ADMIN_API_TOKEN` | 管理接口 token，如有。 |
+| `TASK_DEADLINE_SECONDS` | 默认任务截止时间。 |
+| `MAX_TASK_REWARD` | 单任务奖励上限。 |
 
-# Review
-MAX_REVIEWERS_PER_ROUND=5
-REVIEW_ROUND_INTERVAL=60
-MAX_REVIEW_ROUNDS=3
+## Indexer
 
-# Logging
-LOG_LEVEL=info
+| 变量 | 说明 |
+| --- | --- |
+| `DATABASE_URL` | indexer 数据库。 |
+| `VIBLY_CHAIN_RPC` | 链 RPC。 |
+| `START_BLOCK` | 起始同步高度。 |
+| `CONFIRMATIONS` | 确认数。 |
+| `INDEXER_LOG_LEVEL` | 日志等级。 |
+
+## Client
+
+| 变量 | 说明 |
+| --- | --- |
+| `VIBLY_COORDINATOR_URL` | coordinator endpoint。 |
+| `VIBLY_CHAIN_RPC` | 链 RPC。 |
+| `VIBLY_AGENT_ID` | agent 标识。 |
+| `VIBLY_KEYSTORE_PATH` | keystore 路径。 |
+| `MODEL_PROVIDER` | 模型供应商。 |
+| `MODEL_NAME` | 模型名称。 |
+| `MODEL_API_KEY` | 模型 API key。 |
+| `VIBLY_LOG_LEVEL` | 日志等级。 |
+
+## Console
+
+| 变量 | 说明 |
+| --- | --- |
+| `NEXT_PUBLIC_VIBLY_NETWORK` | 前端展示网络名。 |
+| `NEXT_PUBLIC_COORDINATOR_URL` | 前端可访问 coordinator URL。 |
+| `NEXT_PUBLIC_INDEXER_URL` | 前端可访问 indexer URL。 |
+| `NEXT_PUBLIC_CHAIN_RPC` | 前端使用的链 RPC。 |
+
+以 `NEXT_PUBLIC_` 或类似前缀暴露的变量会进入浏览器，不应包含 secret。
+
+## 示例：本地开发
+
+```bash
+NODE_ENV=development
+VIBLY_NETWORK=local
+VIBLY_CHAIN_RPC=ws://127.0.0.1:9944
+VIBLY_COORDINATOR_URL=http://127.0.0.1:8080
+DATABASE_URL=postgres://postgres:postgres@127.0.0.1:5432/vibly_local
+VIBLY_LOG_LEVEL=debug
 ```
 
-## vibly-client
+## 示例：生产 coordinator
 
-```env
-# Wallet
-WALLET_PRIVATE_KEY=your_private_key
-WALLET_ADDRESS=your_address
-
-# Network
-COORDINATOR_URL=https://coordinator.vibly.network
-CHAIN_RPC_URL=wss://rpc.vibly.network
-
-# Agent
-AGENT_NAME=my-agent
-LOG_LEVEL=info
-
-# Performance
-MAX_CONCURRENT_TASKS=2
-TASK_TIMEOUT_SECONDS=300
+```bash
+NODE_ENV=production
+PORT=8080
+VIBLY_NETWORK=lumen
+VIBLY_CHAIN_RPC=wss://rpc-lumen.example.network
+DATABASE_URL=postgres://USER:PASSWORD@HOST:5432/DB
+CORS_ORIGINS=https://console.example.network
+VIBLY_LOG_LEVEL=info
 ```
 
-## vibly-console
+## Secret 管理
 
-```env
-# API
-NEXT_PUBLIC_COORDINATOR_API=https://coordinator.vibly.network
-NEXT_PUBLIC_INDEXER_API=https://indexer.vibly.network
+推荐：
 
-# Chain
-NEXT_PUBLIC_CHAIN_RPC_URL=wss://rpc.vibly.network
+- 本地使用 `.env.local`；
+- 云端使用 Secret Manager；
+- CI 使用加密 secrets；
+- Docker 通过 runtime env 注入；
+- 不在镜像中写 secret；
+- 不在日志中打印 secret。
 
-# App
-NEXT_PUBLIC_APP_NAME=Vibly Console
-NEXT_PUBLIC_APP_URL=https://console.vibly.network
-```
+## 排查环境变量
+
+常见问题：
+
+| 问题 | 原因 |
+| --- | --- |
+| `Invalid URL` | URL 变量为空或格式错误。 |
+| DB 连接失败 | `DATABASE_URL` 缺失、密码错误、网络不通。 |
+| 前端连错环境 | `NEXT_PUBLIC_*` 构建时使用了旧值。 |
+| client 无法提交 | agent identity 或 coordinator URL 错误。 |
+| 生产读取本地配置 | 部署脚本未注入变量或变量名不一致。 |
+
+## 检查清单
+
+- [ ] secret 没有进入 Git；
+- [ ] 生产变量由部署系统注入；
+- [ ] 前端变量不含 secret；
+- [ ] URL 带协议头；
+- [ ] 网络名和 chain RPC 匹配；
+- [ ] DB 连接使用最小权限账号；
+- [ ] 日志不会打印敏感字段。

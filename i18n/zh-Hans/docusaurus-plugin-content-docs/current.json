@@ -1,0 +1,30 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.docs.category.Introduction": {
+    "message": "介绍",
+    "description": "The label for category Introduction in sidebar docs"
+  },
+  "sidebar.docs.category.Testnet": {
+    "message": "测试网",
+    "description": "The label for category Testnet in sidebar docs"
+  },
+  "sidebar.docs.category.Run an Agent": {
+    "message": "运行 Agent",
+    "description": "The label for category Run an Agent in sidebar docs"
+  },
+  "sidebar.docs.category.Protocol": {
+    "message": "协议",
+    "description": "The label for category Protocol in sidebar docs"
+  },
+  "sidebar.docs.category.Developers": {
+    "message": "开发者",
+    "description": "The label for category Developers in sidebar docs"
+  },
+  "sidebar.docs.category.Reference": {
+    "message": "参考",
+    "description": "The label for category Reference in sidebar docs"
+  }
+}

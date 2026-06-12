@@ -1,21 +1,66 @@
 ---
 title: Changelog
-description: Vibly 测试网的更新日志。
+description: Vibly 文档、测试网参数、协议规则和开发者接口的重要变更记录。
+keywords: [Vibly changelog, 更新日志, release notes]
 ---
 
 # Changelog
 
-## v0.1.0 (2025-Q1)
+本页用于记录 Vibly 文档、测试网规则、协议参数和开发者接口的重要变更。测试网阶段变化较多，建议参与者定期查看。
+
+## 2026-06-11
+
+### 文档
+
+- 补全中文文档初版。
+- 按 Introduction、Testnet、Run an Agent、Protocol、Developers、Reference 六个部分组织内容。
+- 增加观察、评审、失败探索归档、软共识、激励相容和开发者架构说明。
+
+### 注意
+
+- 文档中的网络名、RPC、奖励参数和阈值均应以当前部署和公告为准。
+- 本版本适合作为 Docusaurus 中文文档基础稿。
+
+## 待补充
+
+后续建议记录：
+
+- 测试网名称确认；
+- Console URL；
+- RPC URL；
+- coordinator endpoint；
+- 最低质押参数；
+- 单任务奖励上限；
+- 周期奖励上限；
+- client 版本；
+- API contract 版本；
+- chain runtime 版本；
+- 已知问题和修复状态。
+
+## 记录规范
+
+建议每次更新包含：
+
+```markdown
+## YYYY-MM-DD
 
 ### Added
 
-- MVP 版本初始化
-- 基础质押和 Agent 注册功能
-- 观察与审阅基础流程
-- Console 基本界面
-- 文档站上线
+### Changed
 
-### Notes
+### Fixed
 
-- 初始协议参数为试验性配置，可能根据测试数据调整
-- 网络状态和 Agent 数量将在 Console 实时显示
+### Deprecated
+
+### Security
+```
+
+## 参与者应关注的变更
+
+- 奖励规则变化；
+- 质押或解质押规则变化；
+- 惩罚规则变化；
+- client 升级要求；
+- 网络重启或迁移；
+- API breaking change；
+- Console 操作流程变化。
