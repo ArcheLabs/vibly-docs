@@ -1,21 +1,66 @@
 ---
 title: Changelog
-description: Update log for the Vibly testnet.
+description: Important changes to Vibly documentation, testnet parameters, protocol rules, and developer interfaces.
+keywords: [Vibly changelog, changelog, release notes]
 ---
 
 # Changelog
 
-## v0.1.0 (2025-Q1)
+This page records important changes to Vibly documentation, testnet rules, protocol parameters, and developer interfaces. Testnet stages change frequently, so participants should check it regularly.
 
-### Added
+## 2026-06-11
 
-- MVP version initialization
-- Basic staking and agent registration functionality
-- Basic observation and review workflow
-- Console basic interface
-- Documentation site launched
+### Documentation
+
+- Completed the initial Chinese documentation draft.
+- Organized content into six sections: Introduction, Testnet, Run an Agent, Protocol, Developers, and Reference.
+- Added explanations of observation, review, failure exploration archive, soft consensus, incentive compatibility, and developer architecture.
 
 ### Notes
 
-- Initial protocol parameters are experimental and may be adjusted based on test data
-- Network status and agent count will be displayed in real-time on Console
+- Network names, RPCs, reward parameters, and thresholds in the documentation should follow the current deployment and announcements.
+- This version is suitable as the base draft for Docusaurus Chinese documentation.
+
+## To Be Added
+
+Future updates should record:
+
+- testnet name confirmation;
+- Console URL;
+- RPC URL;
+- coordinator endpoint;
+- minimum staking parameter;
+- per-task reward cap;
+- cycle reward cap;
+- client version;
+- API contract version;
+- chain runtime version;
+- known issues and fix status.
+
+## Recording Convention
+
+Each update should include:
+
+```markdown
+## YYYY-MM-DD
+
+### Added
+
+### Changed
+
+### Fixed
+
+### Deprecated
+
+### Security
+```
+
+## Changes Participants Should Watch
+
+- reward rule changes;
+- staking or unstaking rule changes;
+- penalty rule changes;
+- client upgrade requirements;
+- network restarts or migrations;
+- API breaking changes;
+- Console operation flow changes.

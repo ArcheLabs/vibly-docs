@@ -1,59 +1,151 @@
 ---
 title: Coordinator
-description: Architecture and functionality of the vibly-coordinator service.
+description: Responsibilities, interface boundaries, state management, task scheduling, and operational notes for vibly-coordinator.
+keywords: [vibly-coordinator, coordinator, task scheduling, agent assignment]
 ---
 
 # Coordinator
 
-## Overview
+`vibly-coordinator` is Vibly's off-chain coordination service. It advances tasks from creation to observation, review, and settlement, while connecting the chain, client, console, and indexer.
 
-vibly-coordinator is the off-chain coordination service of the Vibly network. It handles agent management, task scheduling, and review orchestration.
+## Core Responsibilities
 
-## Architecture
+- receive tasks;
+- validate tasks;
+- query agent eligibility;
+- assign observers;
+- assign reviewers;
+- manage deadlines and retries;
+- receive observation and review submissions;
+- calculate or trigger reward settlement;
+- write on-chain summaries or events;
+- provide APIs to the client and console.
+
+## Responsibilities It Should Not Take
+
+The Coordinator should not:
+
+- store private keys;
+- arbitrarily modify on-chain balances;
+- bypass staking eligibility;
+- become the only black-box source of reward rules;
+- treat indexer state as final truth;
+- print secrets in logs.
+
+## Task Scheduling
+
+Scheduling flow:
 
 ```mermaid
-flowchart LR
-  API[HTTP API] --> Core[Coordinator Core]
-  Core --> AgentMgr[Agent Manager]
-  Core --> TaskMgr[Task Manager]
-  Core --> ReviewMgr[Review Manager]
-  AgentMgr --> Chain[vibly-chain]
-  TaskMgr --> Chain
-  ReviewMgr --> Chain
-  Core --> Queue[Task Queue]
+flowchart TD
+  A[Task Created] --> B[Validate]
+  B --> C[Select Observer]
+  C --> D[Observation Deadline]
+  D --> E{Submitted?}
+  E -- No --> F[Reassign / Penalize Miss]
+  E -- Yes --> G[Select Reviewers]
+  G --> H[Review Deadline]
+  H --> I{Consensus?}
+  I -- No --> J[More Reviews / Revision]
+  I -- Yes --> K[Settle]
 ```
 
-## Core modules
+## Agent Selection
 
-### Agent Manager
+Agent selection can use:
 
-- Handles agent registration and deregistration
-- Tracks agent online status and load
-- Maintains agent score and reputation cache
+- online status;
+- stake status;
+- reputation;
+- capability tags;
+- recent workload;
+- random seed;
+- penalty status.
 
-### Task Manager
+Randomness should be auditable. At minimum, record a summary of selection inputs for later troubleshooting.
 
-- Manages task queue and priority
-- Executes agent assignment algorithms
-- Handles task expiration and timeout
+## API Boundary
 
-### Review Manager
+The Coordinator API should be defined by `coordinator-http-contract`. Common interfaces:
 
-- Orchestrates review rounds
-- Selects reviewers
-- Aggregates review results
-- Determines consensus outcomes
+- `GET /health`;
+- `GET /network/status`;
+- `POST /tasks`;
+- `GET /tasks/:id`;
+- `POST /agents/register`;
+- `POST /agents/heartbeat`;
+- `GET /assignments/next`;
+- `POST /observations`;
+- `POST /reviews`;
+- `GET /rewards`.
 
-## API endpoints
+Actual paths should follow the contract.
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/v1/agents/register` | POST | Agent registration |
-| `/api/v1/tasks` | GET | Get task list |
-| `/api/v1/tasks/:id` | GET | Get task details |
-| `/api/v1/reviews/:id` | POST | Submit review |
+## Database
 
-## Related
+The Coordinator database may store:
 
-- [Architecture](/docs/developers/architecture)
-- [Environment Variables](/docs/developers/environment-variables)
+- task body;
+- task state;
+- assignment;
+- submission;
+- review;
+- coordinator internal events;
+- chain sync cursor;
+- idempotent request records.
+
+The database should not store plaintext private keys.
+
+## Idempotency
+
+The following operations should be idempotent where possible:
+
+- task creation;
+- agent heartbeat;
+- observation submission;
+- review submission;
+- settlement event writing.
+
+Use request IDs, submission IDs, or task IDs to prevent duplicate submissions from creating duplicate rewards.
+
+## Operational Metrics
+
+Monitor:
+
+- API latency;
+- task queue length;
+- observer timeout rate;
+- reviewer timeout rate;
+- number of online agents;
+- chain RPC error rate;
+- DB connection count;
+- reward settlement failure count;
+- reward consumption per cycle.
+
+## Incident Handling
+
+### DB Connection Failure
+
+Check `DATABASE_URL`, network, firewall, Cloud SQL proxy, or database instance status.
+
+### Chain RPC Failure
+
+Switch to a backup RPC or pause scheduling operations that require chain state.
+
+### Many Clients Offline
+
+Check coordinator endpoint, version compatibility, certificates, DNS, and network announcements.
+
+### Reward Settlement Failure
+
+Do not manually distribute rewards repeatedly. First identify whether the failure is caused by a chain transaction failure, parameter error, DB state error, or missing idempotency record.
+
+## Security Suggestions
+
+- Add authentication to admin interfaces;
+- separate public APIs from internal APIs;
+- use structured logging;
+- inject secrets through a secret manager;
+- set size limits for all task submissions;
+- rate-limit high-frequency interfaces;
+- verify signatures on agent requests.
