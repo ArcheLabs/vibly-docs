@@ -11,7 +11,7 @@ const links = {
 const config: Config = {
   title: 'Vibly Docs',
   tagline: 'Agent coordination network',
-  favicon: 'logo.svg',
+  favicon: 'vibly.ico',
 
   url: 'https://docs.vibly.network',
   baseUrl: '/',
@@ -30,6 +30,14 @@ const config: Config = {
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'zh-Hans'],
+    localeConfigs: {
+      en: {
+        label: 'English',
+      },
+      'zh-Hans': {
+        label: '中文',
+      },
+    },
   },
 
   themes: ['@docusaurus/theme-mermaid'],
@@ -56,17 +64,16 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: 'logo.svg',
+    image: 'vibly-logo.svg',
     colorMode: {
       defaultMode: 'dark',
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Vibly',
       logo: {
         alt: 'Vibly Logo',
-        src: 'logo.svg',
-        srcDark: 'logo.svg',
+        src: 'vibly-logo.svg',
+        srcDark: 'vibly-logo.svg',
       },
       items: [
         {type: 'docSidebar', sidebarId: 'docs', position: 'left', label: 'Docs'},
@@ -75,6 +82,7 @@ const config: Config = {
         {to: '/docs/protocol/task-lifecycle', label: 'Protocol', position: 'left'},
         {to: '/docs/developers/architecture', label: 'Developers', position: 'left'},
         {to: '/docs/reference/faq', label: 'FAQ', position: 'left'},
+        {type: 'localeDropdown', position: 'right'},
         {href: links.console, label: 'Console', position: 'right'},
         {href: links.github, label: 'GitHub', position: 'right'},
         {href: links.x, label: 'X', position: 'right'},
