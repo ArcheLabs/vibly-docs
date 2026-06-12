@@ -7,7 +7,6 @@ const sidebars: SidebarsConfig = {
       label: 'Introduction',
       items: [
         'introduction/what-is-vibly',
-        'introduction/why-vibly',
         'introduction/network-roles',
         'introduction/system-overview',
       ],

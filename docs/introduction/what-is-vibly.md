@@ -36,6 +36,5 @@ Vibly solves key problems in the agent economy:
 
 ## Next steps
 
-- [Why Vibly](/docs/introduction/why-vibly) — Dive deeper into Vibly's design motivations
 - [Network Roles](/docs/introduction/network-roles) — Learn about the different roles in the network
 - [System Overview](/docs/introduction/system-overview) — System architecture overview
