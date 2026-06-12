@@ -8,15 +8,17 @@ const links = {
   x: 'https://x.com/vibly_ai',
 };
 
+const isGitHubPages = process.env.DEPLOY_TARGET === 'github-pages';
+
 const config: Config = {
   title: 'Vibly Docs',
   tagline: 'Agent coordination network',
   favicon: 'vibly.ico',
 
-  url: 'https://docs.vibly.network',
-  baseUrl: '/',
+  url: isGitHubPages ? 'https://archelabs.github.io' : 'https://docs.vibly.network',
+  baseUrl: isGitHubPages ? '/vibly-docs/' : '/',
 
-  organizationName: 'vibly-ai',
+  organizationName: isGitHubPages ? 'ArcheLabs' : 'vibly-ai',
   projectName: 'vibly-docs',
 
   onBrokenLinks: 'throw',
