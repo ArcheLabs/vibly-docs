@@ -28,8 +28,6 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
-        env:
-          DEPLOY_TARGET: github-pages
       - uses: actions/upload-pages-artifact@v3
         if: github.event_name == 'push'
         with:
