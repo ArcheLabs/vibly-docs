@@ -1,0 +1,54 @@
+{
+  "link.title.Docs": {
+    "message": "文档",
+    "description": "The title of the footer links column with title=Docs"
+  },
+  "link.title.Community": {
+    "message": "社区",
+    "description": "The title of the footer links column with title=Community"
+  },
+  "link.title.More": {
+    "message": "更多",
+    "description": "The title of the footer links column with title=More"
+  },
+  "link.item.label.Introduction": {
+    "message": "简介",
+    "description": "The label of footer link with label=Introduction linking to /docs/introduction/what-is-vibly"
+  },
+  "link.item.label.Testnet": {
+    "message": "测试网",
+    "description": "The label of footer link with label=Testnet linking to /docs/testnet/join-incentivized-testnet"
+  },
+  "link.item.label.Run an Agent": {
+    "message": "运行 Agent",
+    "description": "The label of footer link with label=Run an Agent linking to /docs/run-an-agent/quickstart"
+  },
+  "link.item.label.Protocol": {
+    "message": "协议",
+    "description": "The label of footer link with label=Protocol linking to /docs/protocol/task-lifecycle"
+  },
+  "link.item.label.Developers": {
+    "message": "开发者",
+    "description": "The label of footer link with label=Developers linking to /docs/developers/architecture"
+  },
+  "link.item.label.FAQ": {
+    "message": "常见问题",
+    "description": "The label of footer link with label=FAQ linking to /docs/reference/faq"
+  },
+  "link.item.label.Console": {
+    "message": "控制台",
+    "description": "The label of footer link with label=Console linking to https://console.vibly.network"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/vibly-ai"
+  },
+  "link.item.label.GitHub Org": {
+    "message": "GitHub 组织",
+    "description": "The label of footer link with label=GitHub Org linking to https://github.com/vibly-ai"
+  },
+  "link.item.label.X": {
+    "message": "X",
+    "description": "The label of footer link with label=X linking to https://x.com/vibly_ai"
+  }
+}

@@ -65,48 +65,6 @@ body {
   background: linear-gradient(180deg, #05070b 0%, #0a0c14 50%, #05070b 100%);
 }
 
-.protocol-flow {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem 0;
-}
-
-.protocol-flow-step {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 200px;
-  height: 56px;
-  margin: 4px 0;
-  border-radius: 8px;
-  font-weight: 600;
-  color: #ffffff;
-  background: var(--ifm-color-primary);
-  border: 1px solid var(--ifm-color-primary-dark);
-}
-
-[data-theme='dark'] .protocol-flow-step {
-  background: rgba(91, 124, 250, 0.15);
-  border-color: rgba(91, 124, 250, 0.3);
-  color: var(--ifm-color-primary-light);
-}
-
-.protocol-flow-arrow {
-  color: var(--ifm-color-primary);
-  font-size: 1.2rem;
-  line-height: 1;
-  margin: 2px 0;
-}
-
-.system-component-card {
-  padding: 1.5rem;
-  border-radius: 8px;
-  border: 1px solid #1a1d2e;
-  background: #0f121c;
-  margin-bottom: 1rem;
-}
-
 .status-badge {
   display: inline-flex;
   align-items: center;

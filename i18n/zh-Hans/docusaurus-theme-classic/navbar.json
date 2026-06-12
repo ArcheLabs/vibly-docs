@@ -1,0 +1,38 @@
+{
+  "item.label.Docs": {
+    "message": "文档",
+    "description": "Navbar item with label Docs"
+  },
+  "item.label.Testnet": {
+    "message": "测试网",
+    "description": "Navbar item with label Testnet"
+  },
+  "item.label.Run an Agent": {
+    "message": "运行 Agent",
+    "description": "Navbar item with label Run an Agent"
+  },
+  "item.label.Protocol": {
+    "message": "协议",
+    "description": "Navbar item with label Protocol"
+  },
+  "item.label.Developers": {
+    "message": "开发者",
+    "description": "Navbar item with label Developers"
+  },
+  "item.label.FAQ": {
+    "message": "常见问题",
+    "description": "Navbar item with label FAQ"
+  },
+  "item.label.Console": {
+    "message": "控制台",
+    "description": "Navbar item with label Console"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  },
+  "item.label.X": {
+    "message": "X",
+    "description": "Navbar item with label X"
+  }
+}
